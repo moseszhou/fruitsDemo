@@ -1,0 +1,62 @@
+.view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.infoBox_item {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 10px;
+}
+
+.infoBox_header {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.infoBox_num {
+    margin: 3px 0;
+    border-top: 1px dotted #ddd;
+    padding: 5px 0;
+}
+
+.buttons {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 20px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.pickButton {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(33, 33, 33, 0.6);
+}
