@@ -54,7 +54,7 @@ export default () => {
 
   return (
     <div className={styles.view}>
-      <div>水果篮</div>
+      <div>水果篮-Hooks</div>
       <div className={styles.infoBox}>
         <div className={styles.infoBox_item}>
           <div className={styles.infoBox_header}>当前</div>
