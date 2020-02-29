@@ -8,6 +8,6 @@ export const pickAppleApi = type => {
           weight: Math.floor(Math.random() * 100) + 200
         }
       });
-    }, 200);
+    }, 1000);
   });
 };

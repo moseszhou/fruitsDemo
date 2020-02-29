@@ -64,7 +64,7 @@ class ApplePage extends Component {
               {appleCount}个苹果，{appleWeightSum}克
             </div>
             <div className={styles.infoBox_num}>
-              {pearCount}个苹果，{pearWeightSum}克
+              {pearCount}个香梨，{pearWeightSum}克
             </div>
           </div>
           <div className={styles.infoBox_item}>
@@ -73,7 +73,7 @@ class ApplePage extends Component {
               {appleCount_eaten}个苹果，{appleWeightSum_eaten}克
             </div>
             <div className={styles.infoBox_num}>
-              {pearCount_eaten}个苹果，{pearWeightSum_eaten}克
+              {pearCount_eaten}个香梨，{pearWeightSum_eaten}克
             </div>
           </div>
         </div>
