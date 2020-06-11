@@ -1,3 +1,3 @@
 import * as applesAction from "./applesAction";
 
-export default { ...applesAction };
+export default { applesAction };

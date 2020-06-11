@@ -4,9 +4,9 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import configureStore from "./store";
-import actions from "./actions";
-import storeController from "./storeController";
+import configureStore from "./redux/store";
+import actions from "./redux/actions";
+import storeController from "./redux/storeController";
 const store = configureStore();
 storeController.init(store, actions);
 ReactDOM.render(

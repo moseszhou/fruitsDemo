@@ -2,10 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Item from "./components/item";
-import storeController from "../../storeController";
+import storeController from "../../redux/storeController";
 export default () => {
-  const { list, picking } = useSelector(state => state.apples);
-  const caculate = list => {
+  const { list, picking } = useSelector((state) => state.apples);
+  const caculate = (list) => {
     let appleCount = 0;
     let appleWeightSum = 0;
     let appleCount_eaten = 0;
@@ -14,7 +14,7 @@ export default () => {
     let pearWeightSum = 0;
     let pearCount_eaten = 0;
     let pearWeightSum_eaten = 0;
-    list.forEach(item => {
+    list.forEach((item) => {
       if (item.type === "apple" && !item.eaten) {
         appleCount++;
         appleWeightSum += item.weight;
@@ -37,7 +37,7 @@ export default () => {
       pearCount,
       pearCount_eaten,
       pearWeightSum,
-      pearWeightSum_eaten
+      pearWeightSum_eaten,
     };
   };
 
@@ -49,7 +49,7 @@ export default () => {
     pearCount,
     pearCount_eaten,
     pearWeightSum,
-    pearWeightSum_eaten
+    pearWeightSum_eaten,
   } = caculate(list);
 
   return (
@@ -77,25 +77,29 @@ export default () => {
       </div>
       <div>
         {list
-          .filter(item => !item.eaten)
-          .map(item => (
+          .filter((item) => !item.eaten)
+          .map((item) => (
             <Item
               key={item.id}
               {...item}
-              onPress={() => storeController.actions.eatApple({ id: item.id })}
+              onPress={() =>
+                storeController.actions.applesAction.eatApple({ id: item.id })
+              }
             ></Item>
           ))}
       </div>
       <div className={styles.buttons}>
         <div
           className={styles.pickButton}
-          onClick={() => storeController.actions.pickApple("apple")}
+          onClick={() =>
+            storeController.actions.applesAction.pickApple("apple")
+          }
         >
           采摘苹果
         </div>
         <div
           className={styles.pickButton}
-          onClick={() => storeController.actions.pickApple("pear")}
+          onClick={() => storeController.actions.applesAction.pickApple("pear")}
         >
           采摘香梨
         </div>

@@ -8,21 +8,21 @@ const initData = {
       id: 0,
       weight: 239,
       type: "apple",
-      eaten: false
+      eaten: false,
     },
     {
       id: 1,
       weight: 280,
       type: "pear",
-      eaten: false
+      eaten: false,
     },
     {
       id: 2,
       weight: 346,
       type: "apple",
-      eaten: false
-    }
-  ]
+      eaten: false,
+    },
+  ],
 };
 
 export default handleActions(
@@ -40,15 +40,15 @@ export default handleActions(
         picking: false,
         list: [
           ...state.list,
-          { weight, type, etan: false, id: state.currentId + 1 }
+          { weight, type, etan: false, id: state.currentId + 1 },
         ],
-        currentId: state.currentId + 1
+        currentId: state.currentId + 1,
       };
     },
     [ACTIONS.EAT_APPLE]: (state, action) => {
       let { id } = action.payload;
       const list = [...state.list];
-      list.every(item => {
+      list.every((item) => {
         if (item.id === id) {
           item.eaten = true;
           return false;
@@ -56,7 +56,7 @@ export default handleActions(
         return true;
       });
       return { ...state, list };
-    }
+    },
   },
   initData
 );

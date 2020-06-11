@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Item from "./components/item";
 import { connect } from "react-redux";
-import storeController from "../../storeController";
+import storeController from "../../redux/storeController";
 import styles from "./index.module.css";
 class ApplePage extends Component {
   caculate(list) {
@@ -13,7 +13,7 @@ class ApplePage extends Component {
     let pearWeightSum = 0;
     let pearCount_eaten = 0;
     let pearWeightSum_eaten = 0;
-    list.forEach(item => {
+    list.forEach((item) => {
       if (item.type === "apple" && !item.eaten) {
         appleCount++;
         appleWeightSum += item.weight;
@@ -36,14 +36,12 @@ class ApplePage extends Component {
       pearCount,
       pearCount_eaten,
       pearWeightSum,
-      pearWeightSum_eaten
+      pearWeightSum_eaten,
     };
   }
 
   render() {
-    const {
-      apples: { picking, list }
-    } = this.props;
+    const { picking, list } = this.props;
     let {
       appleCount,
       appleCount_eaten,
@@ -52,7 +50,7 @@ class ApplePage extends Component {
       pearCount,
       pearCount_eaten,
       pearWeightSum,
-      pearWeightSum_eaten
+      pearWeightSum_eaten,
     } = this.caculate(list);
     return (
       <div className={styles.view}>
@@ -79,13 +77,13 @@ class ApplePage extends Component {
         </div>
         <div>
           {list
-            .filter(item => !item.eaten)
-            .map(item => (
+            .filter((item) => !item.eaten)
+            .map((item) => (
               <Item
                 key={item.id}
                 {...item}
                 onPress={() =>
-                  storeController.actions.eatApple({ id: item.id })
+                  storeController.actions.applesAction.eatApple({ id: item.id })
                 }
               ></Item>
             ))}
@@ -93,13 +91,17 @@ class ApplePage extends Component {
         <div className={styles.buttons}>
           <div
             className={styles.pickButton}
-            onClick={() => storeController.actions.pickApple("apple")}
+            onClick={() =>
+              storeController.actions.applesAction.pickApple("apple")
+            }
           >
             采摘苹果
           </div>
           <div
             className={styles.pickButton}
-            onClick={() => storeController.actions.pickApple("pear")}
+            onClick={() =>
+              storeController.actions.applesAction.pickApple("pear")
+            }
           >
             采摘香梨
           </div>
@@ -109,4 +111,4 @@ class ApplePage extends Component {
     );
   }
 }
-export default connect(({ apples }) => ({ apples }))(ApplePage);
+export default connect(({ apples }) => apples)(ApplePage);

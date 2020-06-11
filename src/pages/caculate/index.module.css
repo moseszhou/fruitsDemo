@@ -1,0 +1,18 @@
+.view {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    font-size: 14px;
+}
+
+.btn {
+    border: 1px solid #888;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.num {
+    width: 20px;
+    margin: 0 20px;
+    padding: 4px 8px;
+}
